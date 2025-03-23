@@ -17,8 +17,8 @@ import sys
 
 if "API_BASE" in os.environ:
     litellm.api_base = os.environ["API_BASE"]
-elif "USE_OPENROUTER" in os.environ and os.environ["USE_OPENROUTER"].lower() in ('1', 'y', 'yes', 'true'):
-    litellm.api_base = "https://openrouter.ai/api/v1"
+elif "USE_GEMINI" in os.environ and os.environ["USE_GEMINI"].lower() in ('1', 'y', 'yes', 'true'):
+    litellm.api_base = "https://generativelanguage.googleapis.com/v1beta/openai"
 
 # Load environment variables from .env file
 load_dotenv()
@@ -91,8 +91,8 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 # Get model mapping configuration from environment
-BIG_MODEL = os.environ.get("BIG_MODEL", "gpt-4o")
-SMALL_MODEL = os.environ.get("SMALL_MODEL", "gpt-4o-mini")
+BIG_MODEL = os.environ.get("BIG_MODEL", "gemini-2.0-flash-thinking-exp-01-21")
+SMALL_MODEL = os.environ.get("SMALL_MODEL", "gemini-2.0-flash")
 
 # Models for Anthropic API requests
 class ContentBlockText(BaseModel):
